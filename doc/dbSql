@@ -1,0 +1,33 @@
+/*
+SQLyog Ultimate v9.63
+MySQL - 5.5.36
+*********************************************************************
+*/
+/*!40101 SET NAMES utf8 */;
+
+create table `organization` (
+	`ID` bigint (20),
+	`ORG_CODE` varchar (192),
+	`ORG_NAME` varchar (192),
+	`PARENT_ID` bigint (20),
+	`COMPANY_ID` bigint (20),
+	`CREATE_TIME` datetime
+);
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('1','101001','根节点','0','1','2019-05-04 09:00:00');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('2','101001001','四川省','1','1','2019-05-04 09:00:00');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('3','101001001001','成都市','2','1','2019-05-04 09:00:00');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('4','101001002','浙江省','1','1','2019-05-04 16:38:13');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('5','101001002001','滨江区','4','1','2019-05-04 16:38:47');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('6','101001001001001','高新区','3','1','2019-05-04 16:39:18');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('7','101001003','山西省','1','1','2019-05-04 19:43:30');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('8','101001003001','太原','7','1','2019-05-04 19:45:04');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('9','101001004','大华','1','2','2019-05-04 19:45:34');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('10','101001004001','楼宇','9','2','2019-05-04 19:45:57');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('11','101001004001001','H8900','10','2','2019-05-04 19:46:25');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('12','101001004001002','停车场','10','2','2019-05-04 19:46:45');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('13','101001004001003','能源','10','2','2019-05-04 19:47:08');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('14','101001004001001001','一卡通','11','2','2019-05-04 19:47:32');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('15','101001004001001002','VIMS','11','2','2019-05-04 19:48:02');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('16','101001004001002001','成都分部','12','2','2019-05-04 19:48:45');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('17','101001004001002002','西安分部','12','2','2019-05-04 19:49:07');
+insert into `organization` (`ID`, `ORG_CODE`, `ORG_NAME`, `PARENT_ID`, `COMPANY_ID`, `CREATE_TIME`) values('18','101001004001003001','新能源','13','2','2019-05-04 19:49:31');

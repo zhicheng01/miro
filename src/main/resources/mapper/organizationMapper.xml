@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.OrganizationMapper">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         ID as "id"
+        ,ORG_CODE as orgCode
+        ,ORG_NAME as orgName
+        ,PARENT_ID as parentId
+        ,COMPANY_ID as companyId
+        ,CREATE_TIME as createTime
+    </sql>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.example.demo.entity.Organization" useGeneratedKeys="true" keyProperty="id">
+        insert into organization (
+            ID
+           ,ORG_CODE
+           ,ORG_NAME
+           ,PARENT_ID
+           ,COMPANY_ID
+           ,CREATE_TIME
+        ) values (
+            #{id} 
+           ,#{orgCode}
+           ,#{orgName}
+           ,#{parentId}
+           ,#{companyId}
+           ,now()
+        )
+    </insert>
+
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="queryUserById" resultType="com.example.demo.entity.Organization" parameterType="com.example.demo.entity.Organization">
+        select
+        <include refid="Base_Column_List"/>
+        from organization
+        where ID = #{id}
+    </select>
+
+    <select id="getOrgByCondition" parameterType="map" resultType="com.example.demo.entity.Organization">
+        select
+        <include refid="Base_Column_List"/>
+        from organization
+        WHERE 1=1
+        <if test="companyId != null">
+            and COMPANY_ID = #{companyId}
+        </if>
+        <if test="orgCode != null and orgCode != ''">
+            and ORG_CODE = #{orgCode}
+        </if>
+    </select>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        DELETE FROM organization WHERE ID = #{id}
+    </delete>
+
+    <select id="getAllOrg" parameterType="map" resultType="com.example.demo.entity.Organization">
+        SELECT <include refid="Base_Column_List"/>
+        FROM organization
+        WHERE PARENT_ID  &lt;&gt; 0
+        <if test="companyId != null">
+            and COMPANY_ID = #{companyId}
+        </if>
+    </select>
+</mapper>
